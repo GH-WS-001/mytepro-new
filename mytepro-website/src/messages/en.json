@@ -68,5 +68,13 @@
     "aiChatDesc": "Intelligent Q&A and workflow automation powered by GPT-4.",
     "aiChatDetail": "The AI Chat Assistant leverages GPT-4 to provide smart Q&A, automate business workflows, and enhance customer engagement. Easily integrate with your website or app for a seamless experience.",
     "viewDetail": "View Details"
+  },
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Latest news and insights from MyTePro"
+  },
+  "Cases": {
+    "title": "Cases",
+    "subtitle": "Explore our successful projects and case studies"
   }
 }

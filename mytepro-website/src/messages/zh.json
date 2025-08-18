@@ -67,5 +67,13 @@
     "error": "发生错误，请重试。",
     "welcome": "您好！我是您的 AI 助手。今天有什么可以帮助您的吗？",
     "typing": "AI 正在输入..."
+  },
+  "Blog": {
+    "title": "博客",
+    "subtitle": "来自 MyTePro 的最新资讯和深度见解"
+  },
+  "Cases": {
+    "title": "案例",
+    "subtitle": "探索我们的成功项目和案例研究"
   }
 }
