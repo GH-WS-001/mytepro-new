@@ -57,13 +57,13 @@
   },
   "solution": {
     "title": "我们的解决方案",
-  "digitalTwin": "数字孪生平台",
-  "digitalTwinDesc": "面向行业的实时3D可视化与仿真。",
-  "digitalTwinDetail": "我们的数字孪生平台支持工业和地产场景的实时3D可视化、仿真与监控。可集成 IoT、BIM 等，实现资产的数字镜像。",
-  "aiChat": "AI 聊天助手",
-  "aiChatDesc": "基于 GPT-4 的智能问答与流程自动化。",
-  "aiChatDetail": "AI 聊天助手基于 GPT-4，提供智能问答、业务流程自动化和客户互动提升。可无缝集成到您的网站或应用。",
-  "viewDetail": "查看详情"
+    "digitalTwin": "数字孪生平台",
+    "digitalTwinDesc": "面向行业的实时3D可视化与仿真。",
+    "digitalTwinDetail": "我们的数字孪生平台支持工业和地产场景的实时3D可视化、仿真与监控。可集成 IoT、BIM 等，实现资产的数字镜像。",
+    "aiChat": "AI 聊天助手",
+    "aiChatDesc": "基于 GPT-4 的智能问答与流程自动化。",
+    "aiChatDetail": "AI 聊天助手基于 GPT-4，提供智能问答、业务流程自动化和客户互动提升。可无缝集成到您的网站或应用。",
+    "viewDetail": "查看详情"
   },
   "Chatbot": {
     "title": "AI 助手",
