@@ -88,9 +88,9 @@
     "subscribeDescription": "Get the latest technical articles and industry insights",
     "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe",
-    "backToBlog": "Back to blog list",
+    "backToBlog": "Back to Blog",
     "relatedPosts": "Related Posts",
-    "viewAllPosts": "View all posts"
+    "viewAllPosts": "View All Posts"
   },
   "Cases": {
     "title": "Cases",
@@ -98,6 +98,7 @@
     "featured": "Featured",
     "client": "Client",
     "allCases": "All Cases",
+    "moreCases": "More Cases",
     "noCases": "No cases available",
     "loading": "Loading...",
     "loadError": "Failed to load",
@@ -105,5 +106,14 @@
   },
   "ModelViewer": {
     "modelLoadError": "Failed to load model"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our products and services",
+    "loading": "Loading...",
+    "loadError": "Failed to load",
+    "retry": "Retry",
+    "noQuestions": "No questions available",
+    "backToHome": "Back to Home"
   }
 }

@@ -32,22 +32,28 @@
     "allRightsReserved": "保留所有权利。"
   },
   "VRDigitalTwinPage": {
-    "title": "VR 数字孪生",
-    "description": "体验我们身临其境的 VR 数字孪生技术。",
-    "heroTitle": "革命性的 VR 数字孪生技术",
-    "heroSubtitle": "通过我们的沉浸式虚拟现实解决方案步入房地产的未来，改变房产的设计、营销和体验方式。",
-    "featuresTitle": "核心功能",
-    "feature1": "逼真的 3D 模型",
-    "feature1Desc": "具有准确材料和照明的超高保真度房产 3D 表现。",
-    "feature2": "实时协作",
-    "feature2Desc": "多个利益相关者可以同时探索和互动虚拟环境。",
-    "feature3": "数据集成",
-    "feature3Desc": "与 BIM、CAD 和其他行业标准文件格式无缝集成。",
-    "feature4": "跨平台访问",
-    "feature4Desc": "从 VR 头显、桌面或移动设备访问您的数字孪生。",
-    "ctaTitle": "立即体验未来",
-    "ctaSubtitle": "安排演示，了解我们的 VR 数字孪生技术如何改变您的房地产项目。",
-    "scheduleDemo": "安排演示"
+    "home": "首页",
+    "solutions": "解决方案",
+    "vrDigitalTwin": "VR 数字孪生",
+    "blog": "博客",
+    "cases": "案例",
+    "techBadge": "下一代房地产可视化技术",
+    "heroTitle": "沉浸式房产体验",
+    "heroSubtitle": "通过我们尖端的VR数字孪生技术，进入您的未来房产",
+    "scheduleDemo": "预约演示",
+    "watchVideo": "观看视频",
+    "experienceTitle": "房产浏览的未来",
+    "experienceSubtitle": "通过我们沉浸式的VR技术，以前所未有的细节体验房产",
+    "vrPlaceholder": "VR 数字孪生查看器 - 即将推出",
+    "feature1Title": "360° 房产浏览",
+    "feature1Desc": "通过我们沉浸式的360°浏览体验，探索房产的每个角落",
+    "feature2Title": "实时定制",
+    "feature2Desc": "在虚拟游览过程中，实时可视化不同的装修和布局",
+    "feature3Title": "交互式测量",
+    "feature3Desc": "通过我们的交互式测量工具，获取任何空间的精确测量数据",
+    "ctaTitle": "准备好虚拟房产游览了吗？",
+    "ctaSubtitle": "立即体验房地产浏览的未来",
+    "getStarted": "开始使用"
   },
   "solution": {
     "title": "我们的解决方案",
@@ -89,9 +95,10 @@
   "Cases": {
     "title": "案例",
     "subtitle": "探索我们的成功项目和案例研究",
-    "featured": "精选",
+    "featured": "精选案例",
     "client": "客户",
     "allCases": "所有案例",
+    "moreCases": "更多案例",
     "noCases": "暂无案例",
     "loading": "加载中...",
     "loadError": "加载失败",
@@ -99,5 +106,14 @@
   },
   "ModelViewer": {
     "modelLoadError": "模型加载失败"
+  },
+  "FAQ": {
+    "title": "常见问题",
+    "subtitle": "查找有关我们产品和服务的常见问题的答案",
+    "loading": "加载中...",
+    "loadError": "加载失败",
+    "retry": "重试",
+    "noQuestions": "暂无问题",
+    "backToHome": "返回首页"
   }
 }

@@ -32,22 +32,28 @@
     "allRightsReserved": "全著作権所有。"
   },
   "VRDigitalTwinPage": {
-    "title": "VRデジタルツイン",
-    "description": "没入型のVRデジタルツイン技術を体験してください。",
-    "heroTitle": "革命的なVRデジタルツイン技術",
-    "heroSubtitle": "私たちの没入型VRソリューションで不動産の未来へ足を踏み入れ、不動産の設計、マーケティング、体験方法を変革します。",
-    "featuresTitle": "コア機能",
-    "feature1": "リアルな3Dモデル",
-    "feature1Desc": "正確な素材と照明を備えた超高忠実度の不動産3D表現。",
-    "feature2": "リアルタイムコラボレーション",
-    "feature2Desc": "複数のステークホルダーが同時に仮想環境を探索・インタラクト可能。",
-    "feature3": "データ統合",
-    "feature3Desc": "BIM、CAD、その他の業界標準ファイル形式とのシームレスな統合。",
-    "feature4": "クロスプラットフォームアクセス",
-    "feature4Desc": "VRヘッドセット、デスクトップ、モバイルデバイスからデジタルツインにアクセス。",
-    "ctaTitle": "今すぐ未来を体験",
-    "ctaSubtitle": "デモをスケジュールして、私たちのVRデジタルツイン技術が不動産プロジェクトをどのように変革できるかをご覧ください。",
-    "scheduleDemo": "デモをスケジュール"
+    "home": "ホーム",
+    "solutions": "ソリューション",
+    "vrDigitalTwin": "VRデジタルツイン",
+    "blog": "ブログ",
+    "cases": "ケース",
+    "techBadge": "次世代不動産可視化",
+    "heroTitle": "没入型物件体験",
+    "heroSubtitle": "最先端のVRデジタルツイン技術で、未来の物件の中に足を踏み入れてください",
+    "scheduleDemo": "デモをスケジュール",
+    "watchVideo": "ビデオを見る",
+    "experienceTitle": "物件閲覧の未来",
+    "experienceSubtitle": "没入型VR技術で、前例のない詳細さで物件を体験",
+    "vrPlaceholder": "VRデジタルツインビューア - 近日公開",
+    "feature1Title": "360°物件ツアー",
+    "feature1Desc": "没入型360°ビューアで物件の隅々まで探索",
+    "feature2Title": "リアルタイムカスタマイズ",
+    "feature2Desc": "バーチャルツアー中に、仕上げやレイアウトをリアルタイムで可視化",
+    "feature3Title": "インタラクティブ測定",
+    "feature3Desc": "インタラクティブ測定ツールで、あらゆる空間の正確な測定値を取得",
+    "ctaTitle": "バーチャル物件ツアーの準備はできましたか？",
+    "ctaSubtitle": "今日から不動産閲覧の未来を体験",
+    "getStarted": "今すぐ始める"
   },
   "solution": {
     "title": "私たちのソリューション",
@@ -92,6 +98,7 @@
     "featured": "特集",
     "client": "クライアント",
     "allCases": "すべてのケース",
+    "moreCases": "その他のケース",
     "noCases": "利用可能なケースがありません",
     "loading": "読み込み中...",
     "loadError": "読み込みに失敗しました",
@@ -99,5 +106,14 @@
   },
   "ModelViewer": {
     "modelLoadError": "モデルの読み込みに失敗しました"
+  },
+  "FAQ": {
+    "title": "よくある質問",
+    "subtitle": "当社の製品とサービスに関する一般的な質問の回答をご確認ください",
+    "loading": "読み込み中...",
+    "loadError": "読み込みに失敗しました",
+    "retry": "再試行",
+    "noQuestions": "質問がありません",
+    "backToHome": "ホームに戻る"
   }
 }

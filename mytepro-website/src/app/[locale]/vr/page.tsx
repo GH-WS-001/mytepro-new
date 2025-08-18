@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default function VRDigitalTwin({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('VRDigitalTwinPage');
