@@ -53,7 +53,7 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
                 <Link href={`/${resolvedParams.locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
               )}
               {resolvedParams && (
-                <Link href={`/${resolvedParams.locale}/vr-digital-twin`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
+                <Link href={`/${resolvedParams.locale}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
               )}
               {resolvedParams && (
                 <Link href={`/${resolvedParams.locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{tBlog('title')}</Link>
@@ -346,7 +346,7 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
             >
               <h4 className="text-lg font-semibold mb-6 text-blue-300">{t('products')}</h4>
               <ul className="space-y-3">
-                <li><a href="vr-digital-twin" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group"><span className="w-1 h-1 bg-blue-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>{t('vrDigitalTwin')}</a></li>
+                <li><a href="vr" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group"><span className="w-1 h-1 bg-blue-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>{t('vrDigitalTwin')}</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group"><span className="w-1 h-1 bg-blue-400 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>{t('aiAnalytics')}</a></li>
               </ul>
             </motion.div>

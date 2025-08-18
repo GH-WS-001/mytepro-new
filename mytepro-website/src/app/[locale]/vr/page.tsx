@@ -5,9 +5,18 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-export default function VRDigitalTwin({ params }: { params: { locale: string } }) {
+export default function VRDigitalTwin({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('VRDigitalTwinPage');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [locale, setLocale] = useState<string>('');
+
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setLocale(resolved.locale);
+    };
+    resolveParams();
+  }, [params]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -27,15 +36,15 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MyTePro</div>
             </div>
             <div className="hidden md:flex space-x-8">
-              <Link href={`/${params.locale}`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('home')}</Link>
-              <Link href={`/${params.locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
-              <span className="text-blue-400">{t('vrDigitalTwin')}</span>
-              <Link href={`/${params.locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('blog')}</Link>
-              <Link href={`/${params.locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('cases')}</Link>
+              <Link href={`/${locale}`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('VRDigitalTwinPage.home')}</Link>
+              <Link href={`/${locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('VRDigitalTwinPage.solutions')}</Link>
+              <span className="text-blue-400">{t('VRDigitalTwinPage.vrDigitalTwin')}</span>
+              <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('VRDigitalTwinPage.blog')}</Link>
+              <Link href={`/${locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('VRDigitalTwinPage.cases')}</Link>
             </div>
             <div className="flex items-center space-x-4">
               <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                {t('getStarted')}
+                {t('VRDigitalTwinPage.getStarted')}
               </button>
             </div>
           </div>
@@ -62,7 +71,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               className="inline-flex items-center px-4 py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full"
             >
               <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-              <span className="text-blue-300 text-sm font-medium">{t('techBadge')}</span>
+              <span className="text-blue-300 text-sm font-medium">{t('VRDigitalTwinPage.techBadge')}</span>
             </motion.div>
             
             <motion.h1 
@@ -72,7 +81,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               className="text-6xl md:text-8xl lg:text-9xl font-bold leading-tight"
             >
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                {t('heroTitle')}
+                {t('VRDigitalTwinPage.heroTitle')}
               </span>
             </motion.h1>
             
@@ -82,7 +91,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               transition={{ duration: 1, delay: 0.6 }}
               className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light"
             >
-              {t('heroSubtitle')}
+              {t('VRDigitalTwinPage.heroSubtitle')}
             </motion.p>
             
             <motion.div 
@@ -98,7 +107,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 flex items-center gap-2">
-                  {t('scheduleDemo')}
+                  {t('VRDigitalTwinPage.scheduleDemo')}
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -115,7 +124,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  {t('watchVideo')}
+                  {t('VRDigitalTwinPage.watchVideo')}
                 </span>
               </motion.button>
             </motion.div>
@@ -151,7 +160,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               transition={{ duration: 0.8 }}
               className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent"
             >
-              {t('experienceTitle')}
+              {t('VRDigitalTwinPage.experienceTitle')}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -159,13 +168,13 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             >
-              {t('experienceSubtitle')}
+              {t('VRDigitalTwinPage.experienceSubtitle')}
             </motion.p>
           </div>
           
           <div className="bg-slate-800/50 rounded-2xl p-8 border border-white/10">
             <div className="aspect-video bg-gray-700/30 rounded-xl flex items-center justify-center mb-8">
-              <div className="text-gray-400 text-lg">{t('vrPlaceholder')}</div>
+              <div className="text-gray-400 text-lg">{t('VRDigitalTwinPage.vrPlaceholder')}</div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -179,10 +188,10 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
                   className="bg-slate-800/50 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:border-blue-400/50 transition-all duration-300"
                 >
                   <h3 className="text-2xl font-bold text-white mb-4">
-                    {t(`feature${item}Title`)}
+                    {t(`VRDigitalTwinPage.feature${item}Title`)}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
-                    {t(`feature${item}Desc`)}
+                    {t(`VRDigitalTwinPage.feature${item}Desc`)}
                   </p>
                 </motion.div>
               ))}
@@ -203,7 +212,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
             transition={{ duration: 0.8 }}
             className="text-5xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent"
           >
-            {t('ctaTitle')}
+            {t('VRDigitalTwinPage.ctaTitle')}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 50 }}
@@ -211,7 +220,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            {t('ctaSubtitle')}
+            {t('VRDigitalTwinPage.ctaSubtitle')}
           </motion.p>
           <motion.button
             initial={{ opacity: 0, y: 50 }}
@@ -221,7 +230,7 @@ export default function VRDigitalTwin({ params }: { params: { locale: string } }
             whileTap={{ scale: 0.95 }}
             className="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full hover:from-blue-500 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
           >
-            {t('getStarted')}
+            {t('VRDigitalTwinPage.getStarted')}
           </motion.button>
         </div>
       </section>
