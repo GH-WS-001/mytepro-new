@@ -1,0 +1,32 @@
+import { NextResponse, NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+
+const intlMiddleware = createMiddleware({
+  // A list of all locales that are supported
+  locales: ['en', 'ar', 'zh', 'ja'],
+
+  // Used when no locale matches
+  defaultLocale: 'en',
+  
+  // Always require locale prefix
+  localePrefix: 'always'
+});
+
+export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // Handle root path and specific paths without locale
+  if (pathname === '/' || pathname === '/vr-digital-twin') {
+    return NextResponse.redirect(
+      new URL(`/en${pathname}`, request.url)
+    );
+  }
+  
+  return intlMiddleware(request);
+}
+
+export const config = {
+  // Skip all paths that should not be internationalized. This example skips the
+  // folders "api", "_next" and all files with an extension (e.g. favicon.ico)
+  matcher: ['/((?!api|_next|.*\..*).*)']
+};
