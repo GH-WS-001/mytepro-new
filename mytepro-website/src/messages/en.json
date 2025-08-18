@@ -57,7 +57,8 @@
     "loading": "Thinking...",
     "error": "An error occurred. Please try again.",
     "welcome": "Hello! I'm your AI assistant. How can I help you today?",
-    "typing": "AI is typing..."
+    "typing": "AI is typing...",
+    "retry": "Retry"
   },
   "solution": {
     "title": "Our Solutions",
@@ -71,10 +72,37 @@
   },
   "Blog": {
     "title": "Blog",
-    "subtitle": "Latest news and insights from MyTePro"
+    "subtitle": "Latest news and insights from MyTePro",
+    "loading": "Loading...",
+    "loadError": "Failed to load",
+    "retry": "Retry",
+    "noPosts": "No posts available",
+    "comingSoon": "More content coming soon",
+    "backToHome": "Back to Home",
+    "subscribeTitle": "Subscribe to our blog",
+    "subscribeDescription": "Get the latest technical articles and industry insights",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "backToBlog": "Back to blog list",
+    "relatedPosts": "Related Posts",
+    "viewAllPosts": "View all posts"
   },
   "Cases": {
     "title": "Cases",
+<<<<<<< Updated upstream
     "subtitle": "Explore our successful projects and case studies"
+=======
+    "subtitle": "Explore our successful projects and case studies",
+    "featured": "Featured",
+    "client": "Client",
+    "allCases": "All Cases",
+    "noCases": "No cases available",
+    "loading": "Loading...",
+    "loadError": "Failed to load",
+    "retry": "Retry"
+  },
+  "ModelViewer": {
+    "modelLoadError": "Failed to load model"
+>>>>>>> Stashed changes
   }
 }

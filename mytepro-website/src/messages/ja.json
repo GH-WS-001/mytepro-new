@@ -66,14 +66,42 @@
     "loading": "考え中...",
     "error": "エラーが発生しました。再試行してください。",
     "welcome": "こんにちは！私はあなたのAIアシスタントです。今日はどのようにお手伝いできますか？",
-    "typing": "AIが入力中..."
+    "typing": "AIが入力中...",
+    "retry": "再試行"
   },
   "Blog": {
     "title": "ブログ",
-    "subtitle": "MyTeProからの最新ニュースと洞察"
+    "subtitle": "MyTeProからの最新ニュースと洞察",
+    "loading": "読み込み中...",
+    "loadError": "読み込みに失敗しました",
+    "retry": "再試行",
+    "noPosts": "投稿がありません",
+    "comingSoon": "より多くのコンテンツが近日公開予定",
+    "backToHome": "ホームに戻る",
+    "subscribeTitle": "ブログを購読する",
+    "subscribeDescription": "最新の技術記事と業界の洞察を入手する",
+    "emailPlaceholder": "メールアドレスを入力",
+    "subscribe": "購読",
+    "backToBlog": "ブログ一覧に戻る",
+    "relatedPosts": "関連記事",
+    "viewAllPosts": "すべての投稿を表示"
   },
   "Cases": {
     "title": "ケース",
+<<<<<<< Updated upstream
     "subtitle": "成功事例とケーススタディをご覧ください"
+=======
+    "subtitle": "成功事例とケーススタディをご覧ください",
+    "featured": "特集",
+    "client": "クライアント",
+    "allCases": "すべてのケース",
+    "noCases": "利用可能なケースがありません",
+    "loading": "読み込み中...",
+    "loadError": "読み込みに失敗しました",
+    "retry": "再試行"
+  },
+  "ModelViewer": {
+    "modelLoadError": "モデルの読み込みに失敗しました"
+>>>>>>> Stashed changes
   }
 }

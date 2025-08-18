@@ -1,5 +1,5 @@
-import { useTranslations } from 'next-intl';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 
 const solutions = [
   {
@@ -18,9 +18,10 @@ const solutions = [
   },
 ];
 
-export default function SolutionDetailPage({ params }: { params: { id: string } }) {
-  const t = useTranslations('solution');
-  const solution = solutions.find((s) => s.id === params.id);
+export default async function SolutionDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
+  const { locale, id } = await params;
+  const t = await getTranslations({ locale, namespace: 'solution' });
+  const solution = solutions.find((s) => s.id === id);
   if (!solution) return notFound();
   return (
     <main className="max-w-2xl mx-auto py-12 px-4">

@@ -66,14 +66,42 @@
     "loading": "思考中...",
     "error": "发生错误，请重试。",
     "welcome": "您好！我是您的 AI 助手。今天有什么可以帮助您的吗？",
-    "typing": "AI 正在输入..."
+    "typing": "AI 正在输入...",
+    "retry": "重试"
   },
   "Blog": {
     "title": "博客",
-    "subtitle": "来自 MyTePro 的最新资讯和深度见解"
+    "subtitle": "来自 MyTePro 的最新资讯和深度见解",
+    "loading": "加载中...",
+    "loadError": "加载失败",
+    "retry": "重试",
+    "noPosts": "暂无文章",
+    "comingSoon": "敬请期待更多精彩内容",
+    "backToHome": "返回首页",
+    "subscribeTitle": "订阅我们的博客",
+    "subscribeDescription": "获取最新的技术文章和行业动态",
+    "emailPlaceholder": "输入您的邮箱",
+    "subscribe": "订阅",
+    "backToBlog": "返回博客列表",
+    "relatedPosts": "相关文章",
+    "viewAllPosts": "查看所有文章"
   },
   "Cases": {
     "title": "案例",
+<<<<<<< Updated upstream
     "subtitle": "探索我们的成功项目和案例研究"
+=======
+    "subtitle": "探索我们的成功项目和案例研究",
+    "featured": "精选",
+    "client": "客户",
+    "allCases": "所有案例",
+    "noCases": "暂无案例",
+    "loading": "加载中...",
+    "loadError": "加载失败",
+    "retry": "重试"
+  },
+  "ModelViewer": {
+    "modelLoadError": "模型加载失败"
+>>>>>>> Stashed changes
   }
 }

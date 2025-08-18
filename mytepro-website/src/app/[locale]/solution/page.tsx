@@ -1,6 +1,7 @@
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+'use client';
 
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
 
 const solutions = [
   {
@@ -19,6 +20,7 @@ const solutions = [
 
 export default function SolutionPage() {
   const t = useTranslations('solution');
+  const locale = useLocale();
   return (
     <main className="max-w-4xl mx-auto py-12 px-4">
       <h1 className="text-4xl font-bold mb-10 text-center">{t('title')}</h1>
@@ -30,7 +32,9 @@ export default function SolutionPage() {
               <h2 className="text-2xl font-semibold group-hover:text-blue-600 transition-colors">{t(s.titleKey)}</h2>
             </div>
             <p className="mb-6 text-gray-600 dark:text-gray-300">{t(s.descKey)}</p>
-            <Link href={`${s.id}`} className="mt-auto inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-medium shadow hover:from-blue-600 hover:to-purple-600 transition-all">{t('viewDetail')}</Link>
+            <Link href={`/${locale}/solution/${s.id}`} className="mt-auto inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-medium shadow hover:from-blue-600 hover:to-purple-600 transition-all">
+              {t('viewDetail')}
+            </Link>
           </div>
         ))}
       </div>
