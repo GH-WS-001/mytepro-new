@@ -114,6 +114,10 @@
     "loadError": "Failed to load",
     "retry": "Retry",
     "noQuestions": "No questions available",
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "contactDesc": "If you have any questions, please feel free to contact us",
+    "contactUs": "Contact Us",
+    "contactTitle": "Have more questions?",
+    "onlineChat": "Online Chat"
   }
 }

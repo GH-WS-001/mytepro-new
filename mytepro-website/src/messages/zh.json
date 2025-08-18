@@ -114,6 +114,10 @@
     "loadError": "加载失败",
     "retry": "重试",
     "noQuestions": "暂无问题",
-    "backToHome": "返回首页"
+    "backToHome": "返回首页",
+    "contactDesc": "如果您有任何问题，请随时联系我们",
+    "contactUs": "联系我们",
+    "contactTitle": "还有其他问题？",
+    "onlineChat": "在线咨询"
   }
 }

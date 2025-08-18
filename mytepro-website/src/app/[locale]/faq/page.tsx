@@ -13,7 +13,7 @@ interface FAQItem {
 }
 
 export default function FAQPage() {
-  const t = useTranslations('Blog');
+  const t = useTranslations('FAQ');
   const { data: faqs, loading, error } = useFAQs() as { 
     data: FAQItem[] | null; 
     loading: boolean; 
@@ -50,7 +50,7 @@ export default function FAQPage() {
 
   // 按类别分组FAQ
   const faqsByCategory = faqs?.reduce((acc: Record<string, FAQItem[]>, faq: FAQItem) => {
-    const category = faq.category || '其他';
+    const category = faq.category || t('noQuestions');
     if (!acc[category]) {
       acc[category] = [];
     }
@@ -91,16 +91,16 @@ export default function FAQPage() {
           ) : (
             <div className="text-center py-12">
               <h2 className="text-2xl font-semibold text-gray-600 mb-4">
-                暂无常见问题
+                {t('noQuestions')}
               </h2>
               <p className="text-gray-500 mb-6">
-                如果您有任何问题，请随时联系我们
+                {t('contactDesc')}
               </p>
               <button 
                 onClick={() => window.location.href = '/contact'}
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                联系我们
+                {t('contactUs')}
               </button>
             </div>
           )}
@@ -110,22 +110,22 @@ export default function FAQPage() {
       {/* Contact CTA */}
       <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">还有其他问题？</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('contactTitle')}</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            我们的专业团队随时为您解答疑问，提供技术支持
+            {t('contactDesc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => window.location.href = '/contact'}
               className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
             >
-              联系我们
+              {t('contactUs')}
             </button>
             <button 
               onClick={() => window.location.href = '/chat'}
               className="px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
             >
-              在线咨询
+              {t('onlineChat')}
             </button>
           </div>
         </div>
