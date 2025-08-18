@@ -4,17 +4,17 @@ import { notFound } from 'next/navigation';
 const solutions = [
   {
     id: 'digital-twin',
-    titleKey: 'solution.digitalTwin',
-    descKey: 'solution.digitalTwinDesc',
-    detailKey: 'solution.digitalTwinDetail',
-    image: '/public/file.svg',
+    titleKey: 'digitalTwin',
+    descKey: 'digitalTwinDesc',
+    detailKey: 'digitalTwinDetail',
+    image: '/file.svg',
   },
   {
     id: 'ai-chat',
-    titleKey: 'solution.aiChat',
-    descKey: 'solution.aiChatDesc',
-    detailKey: 'solution.aiChatDetail',
-    image: '/public/window.svg',
+    titleKey: 'aiChat',
+    descKey: 'aiChatDesc',
+    detailKey: 'aiChatDetail',
+    image: '/window.svg',
   },
 ];
 

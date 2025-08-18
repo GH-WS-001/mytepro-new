@@ -13,6 +13,8 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
 
 function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('HomePage');
+  const tBlog = useTranslations('Blog');
+  const tCases = useTranslations('Cases');
   const [isScrolled, setIsScrolled] = useState(false);
   const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
 
@@ -51,8 +53,8 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
                 <Link href={`/${resolvedParams.locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
               )}
               <a href="vr-digital-twin" className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</a>
-              <a href="/blog" className="text-gray-300 hover:text-blue-400 transition-colors">博客</a>
-              <a href="/cases" className="text-gray-300 hover:text-blue-400 transition-colors">案例</a>
+              <a href="/blog" className="text-gray-300 hover:text-blue-400 transition-colors">{tBlog('title')}</a>
+              <a href="/cases" className="text-gray-300 hover:text-blue-400 transition-colors">{tCases('title')}</a>
               <a href="/faq" className="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a>
               <a href="#contact" className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</a>
             </div>
