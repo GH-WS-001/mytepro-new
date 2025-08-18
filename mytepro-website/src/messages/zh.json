@@ -88,9 +88,6 @@
   },
   "Cases": {
     "title": "案例",
-<<<<<<< Updated upstream
-    "subtitle": "探索我们的成功项目和案例研究"
-=======
     "subtitle": "探索我们的成功项目和案例研究",
     "featured": "精选",
     "client": "客户",
@@ -102,6 +99,5 @@
   },
   "ModelViewer": {
     "modelLoadError": "模型加载失败"
->>>>>>> Stashed changes
   }
 }

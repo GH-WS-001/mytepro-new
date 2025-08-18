@@ -1,13 +1,25 @@
 'use client';
 
 import { Suspense, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Environment, Grid, Stats } from '@react-three/drei';
 import * as THREE from 'three';
-import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+// GLTF type definition to avoid import issues
+interface GLTF {
+  scene: THREE.Group;
+  animations?: THREE.AnimationClip[];
+  cameras?: THREE.Camera[];
+  asset?: {
+    generator?: string;
+    version?: string;
+  };
+}
 
 // 模型加载组件
-function Model({ url }: { url: string }) {
+function Model({ url, t }: { url: string; t: ReturnType<typeof useTranslations> }) {
   const modelRef = useRef<THREE.Group>(null);
   const [model, setModel] = useState<GLTF | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +44,7 @@ function Model({ url }: { url: string }) {
       console.log('Loading progress:', progress);
     },
     (err) => {
-      setError('模型加载失败');
+      setError(t('modelLoadError'));
       console.error('Error loading model:', err);
     }
   );
@@ -59,7 +71,7 @@ function Model({ url }: { url: string }) {
 }
 
 // 场景设置组件
-function Scene({ modelUrl }: { modelUrl: string }) {
+function Scene({ modelUrl, t }: { modelUrl: string; t: ReturnType<typeof useTranslations> }) {
   const { camera } = useThree();
   
   // 设置相机位置
@@ -84,7 +96,7 @@ function Scene({ modelUrl }: { modelUrl: string }) {
       <pointLight position={[-10, -10, -10]} intensity={0.5} />
       
       {/* 模型 */}
-      <Model url={modelUrl} />
+      <Model url={modelUrl} t={t} />
       
       {/* 网格地面 */}
       <Grid 
@@ -123,6 +135,7 @@ function Scene({ modelUrl }: { modelUrl: string }) {
 
 // 主组件
 export default function ModelViewer({ modelPath = '/models/demo.glb' }: { modelPath?: string }) {
+  const t = useTranslations('ModelViewer');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -130,10 +143,10 @@ export default function ModelViewer({ modelPath = '/models/demo.glb' }: { modelP
     setIsLoading(false);
   };
 
-  const handleModelError = (err: any) => {
-    setError('模型加载失败');
+  const handleModelError = (event: React.SyntheticEvent<HTMLDivElement, Event>) => {
+    setError(t('modelLoadError'));
     setIsLoading(false);
-    console.error('Model loading error:', err);
+    console.error('Model loading error:', event);
   };
 
   return (
@@ -168,7 +181,7 @@ export default function ModelViewer({ modelPath = '/models/demo.glb' }: { modelP
         }}
       >
         <Suspense fallback={null}>
-          <Scene modelUrl={modelPath} />
+          <Scene modelUrl={modelPath} t={t} />
         </Suspense>
       </Canvas>
       

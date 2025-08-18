@@ -1,17 +1,31 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { useFAQs } from '@/hooks/useSanityData';
 import { FAQItem } from '@/components/SanityContent';
+import { PortableTextBlock } from '@portabletext/react';
+
+interface FAQItem {
+  _id: string;
+  question: string;
+  answer: PortableTextBlock[];
+  category?: string;
+}
 
 export default function FAQPage() {
-  const t = useTranslations('FAQ');
-  const { data: faqs, loading, error } = useFAQs();
+  const t = useTranslations('Blog');
+  const { data: faqs, loading, error } = useFAQs() as { 
+    data: FAQItem[] | null; 
+    loading: boolean; 
+    error: string | null 
+  };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">加载中...</p>
+          <p className="text-gray-600">{t('loading')}</p>
         </div>
       </div>
     );
@@ -21,13 +35,13 @@ export default function FAQPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">加载失败</h1>
+          <h1 className="text-2xl font-bold text-red-600 mb-4">{t('loadError')}</h1>
           <p className="text-gray-600 mb-4">{error}</p>
           <button 
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            重试
+            {t('retry')}
           </button>
         </div>
       </div>
@@ -35,7 +49,7 @@ export default function FAQPage() {
   }
 
   // 按类别分组FAQ
-  const faqsByCategory = faqs?.reduce((acc: Record<string, typeof faqs>, faq: any) => {
+  const faqsByCategory = faqs?.reduce((acc: Record<string, FAQItem[]>, faq: FAQItem) => {
     const category = faq.category || '其他';
     if (!acc[category]) {
       acc[category] = [];
@@ -67,7 +81,7 @@ export default function FAQPage() {
                     <h2 className="text-2xl font-semibold text-blue-900">{category}</h2>
                   </div>
                   <div className="divide-y divide-gray-200">
-                    {categoryFaqs.map((faq: any) => (
+                    {categoryFaqs.map((faq: FAQItem) => (
                       <FAQItem key={faq._id} faq={faq} />
                     ))}
                   </div>

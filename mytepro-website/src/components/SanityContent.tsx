@@ -3,57 +3,59 @@ import { urlFor } from '@/lib/sanity';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 // 自定义PortableText组件
 const components: PortableTextComponents = {
   block: {
-    h1: ({ children }: { children: ReactNode }) => (
+    h1: ({ children }: { children?: ReactNode }) => (
       <h1 className="text-3xl font-bold mb-4 mt-6">{children}</h1>
     ),
-    h2: ({ children }: { children: ReactNode }) => (
+    h2: ({ children }: { children?: ReactNode }) => (
       <h2 className="text-2xl font-semibold mb-3 mt-5">{children}</h2>
     ),
-    h3: ({ children }: { children: ReactNode }) => (
+    h3: ({ children }: { children?: ReactNode }) => (
       <h3 className="text-xl font-medium mb-2 mt-4">{children}</h3>
     ),
-    normal: ({ children }: { children: ReactNode }) => (
+    normal: ({ children }: { children?: ReactNode }) => (
       <p className="mb-4 leading-relaxed">{children}</p>
     ),
-    blockquote: ({ children }: { children: ReactNode }) => (
+    blockquote: ({ children }: { children?: ReactNode }) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 py-2 mb-4 italic bg-gray-50">
         {children}
       </blockquote>
     ),
   },
   list: {
-    bullet: ({ children }: { children: ReactNode }) => (
+    bullet: ({ children }: { children?: ReactNode }) => (
       <ul className="list-disc list-inside mb-4 space-y-1">{children}</ul>
     ),
-    number: ({ children }: { children: ReactNode }) => (
+    number: ({ children }: { children?: ReactNode }) => (
       <ol className="list-decimal list-inside mb-4 space-y-1">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({ children }: { children: ReactNode }) => (
+    bullet: ({ children }: { children?: ReactNode }) => (
       <li className="pl-2">{children}</li>
     ),
-    number: ({ children }: { children: ReactNode }) => (
+    number: ({ children }: { children?: ReactNode }) => (
       <li className="pl-2">{children}</li>
     ),
   },
   marks: {
-    strong: ({ children }: { children: ReactNode }) => (
+    strong: ({ children }: { children?: ReactNode }) => (
       <strong className="font-semibold">{children}</strong>
     ),
-    em: ({ children }: { children: ReactNode }) => (
+    em: ({ children }: { children?: ReactNode }) => (
       <em className="italic">{children}</em>
     ),
-    code: ({ children }: { children: ReactNode }) => (
+    code: ({ children }: { children?: ReactNode }) => (
       <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">
         {children}
       </code>
     ),
-    link: ({ value, children }: { value?: { href?: string }; children: ReactNode }) => {
+    link: ({ value, children }: { value?: { href?: string }; children?: ReactNode }) => {
       const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
       return (
         <Link 
@@ -103,7 +105,36 @@ export function PortableTextRenderer({ value }: { value: PortableTextBlock[] | n
 }
 
 // 文章卡片组件
-export function PostCard({ post }: { post: any }) {
+export function PostCard({ post }: { post: {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  mainImage?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  publishedAt: string;
+  author?: {
+    name: string;
+    avatar?: {
+      _type: string;
+      asset: {
+        _ref: string;
+        _type: string;
+      };
+    };
+  };
+  categories?: {
+    title: string;
+  }[];
+} }) {
+  const t = useTranslations('Blog');
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
   return (
     <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       {post.mainImage && (
@@ -118,7 +149,9 @@ export function PostCard({ post }: { post: any }) {
       )}
       <div className="p-6">
         <div className="flex items-center gap-2 mb-2">
-          {post.categories?.map((category: any) => (
+          {post.categories?.map((category: {
+            title: string;
+          }) => (
             <span 
               key={category.title}
               className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
@@ -145,7 +178,26 @@ export function PostCard({ post }: { post: any }) {
 }
 
 // 案例卡片组件
-export function CaseCard({ case_item }: { case_item: any }) {
+export function CaseCard({ case_item }: { case_item: {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  mainImage?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  featured: boolean;
+  publishedAt: string;
+  technologies?: string[];
+  client?: string;
+} }) {
+  const t = useTranslations('Cases');
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
   return (
     <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       {case_item.featured && (
@@ -193,7 +245,10 @@ export function CaseCard({ case_item }: { case_item: any }) {
 }
 
 // FAQ组件
-export function FAQItem({ faq }: { faq: any }) {
+export function FAQItem({ faq }: { faq: {
+  question: string;
+  answer: PortableTextBlock[];
+} }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

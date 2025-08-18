@@ -88,9 +88,6 @@
   },
   "Cases": {
     "title": "الحالات",
-<<<<<<< Updated upstream
-    "subtitle": "استكشف مشاريعنا الناجحة ودراسات الحالة"
-=======
     "subtitle": "استعرض مشاريعنا الناجحة ودراسات الحالة",
     "featured": "مميزة",
     "client": "العميل",
@@ -102,6 +99,5 @@
   },
   "ModelViewer": {
     "modelLoadError": "فشل تحميل النموذج"
->>>>>>> Stashed changes
   }
 }

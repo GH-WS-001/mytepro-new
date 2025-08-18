@@ -88,9 +88,6 @@
   },
   "Cases": {
     "title": "ケース",
-<<<<<<< Updated upstream
-    "subtitle": "成功事例とケーススタディをご覧ください"
-=======
     "subtitle": "成功事例とケーススタディをご覧ください",
     "featured": "特集",
     "client": "クライアント",
@@ -102,6 +99,5 @@
   },
   "ModelViewer": {
     "modelLoadError": "モデルの読み込みに失敗しました"
->>>>>>> Stashed changes
   }
 }

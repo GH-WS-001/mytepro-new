@@ -1,10 +1,12 @@
+"use client";
+
 import { useState, useEffect } from 'react';
-import { getSanityData, getSanityDocument } from '@/lib/sanity';
+import { fetchData, fetchDocument } from '@/lib/sanity';
 
 // 通用数据获取hook
 export function useSanityData<T>(
   query: string, 
-  params?: Record<string, any>,
+  params?: Record<string, string | number | boolean>,
   options: {
     initialData?: T[];
     enabled?: boolean;
@@ -17,15 +19,13 @@ export function useSanityData<T>(
   const [loading, setLoading] = useState(enabled);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = async () => {
+  const fetchDataFromSanity = async () => {
     if (!enabled) return;
-    
     setLoading(true);
     setError(null);
-    
     try {
-      const result = await getSanityData<T>(query, params);
-      setData(result);
+      const result = await fetchData(query, params);
+      setData(result as T[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : '获取数据失败');
     } finally {
@@ -34,14 +34,13 @@ export function useSanityData<T>(
   };
 
   useEffect(() => {
-    fetchData();
+    fetchDataFromSanity();
   }, [query, JSON.stringify(params), enabled]);
 
   // 定时刷新
   useEffect(() => {
     if (!refetchInterval || !enabled) return;
-    
-    const interval = setInterval(fetchData, refetchInterval);
+    const interval = setInterval(fetchDataFromSanity, refetchInterval);
     return () => clearInterval(interval);
   }, [refetchInterval, enabled]);
 
@@ -49,14 +48,14 @@ export function useSanityData<T>(
     data,
     loading,
     error,
-    refetch: fetchData,
+    refetch: fetchDataFromSanity,
   };
 }
 
 // 单条数据获取hook
 export function useSanityDocument<T>(
   query: string, 
-  params?: Record<string, any>,
+  params?: Record<string, string | number | boolean>,
   options: {
     initialData?: T | null;
     enabled?: boolean;
@@ -68,14 +67,14 @@ export function useSanityDocument<T>(
   const [loading, setLoading] = useState(enabled);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = async () => {
+  const fetchDataFromSanity = async () => {
     if (!enabled) return;
     
     setLoading(true);
     setError(null);
     
     try {
-      const result = await getSanityDocument<T>(query, params);
+      const result = await fetchDocument<T>(query, params);
       setData(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : '获取数据失败');
@@ -85,14 +84,14 @@ export function useSanityDocument<T>(
   };
 
   useEffect(() => {
-    fetchData();
+    fetchDataFromSanity();
   }, [query, JSON.stringify(params), enabled]);
 
   return {
     data,
     loading,
     error,
-    refetch: fetchData,
+    refetch: fetchDataFromSanity,
   };
 }
 

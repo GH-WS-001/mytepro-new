@@ -266,7 +266,7 @@ export default function Chatbot() {
                         onClick={() => setState(prev => ({ ...prev, error: null }))}
                         className="text-xs text-red-500 hover:text-red-700 mt-1"
                       >
-                        重试
+                        {t('retry')}
                       </button>
                     </div>
                   </div>
