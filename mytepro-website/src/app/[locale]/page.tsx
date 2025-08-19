@@ -48,27 +48,25 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MyTePro</div>
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#features" className="text-gray-300 hover:text-blue-400 transition-colors">{t('features')}</a>
-              {resolvedParams && (
-                <Link href={`/${resolvedParams.locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
-              )}
-              {resolvedParams && (
-                <Link href={`/${resolvedParams.locale}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
-              )}
-              {resolvedParams && (
-                <Link href={`/${resolvedParams.locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{tBlog('title')}</Link>
-              )}
-              {resolvedParams && (
-                <Link href={`/${resolvedParams.locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{tCases('title')}</Link>
-              )}
-              {resolvedParams && (
-                <Link href={`/${resolvedParams.locale}/faq`} className="text-gray-300 hover:text-blue-400 transition-colors">FAQ</Link>
-              )}
-              <a href="#contact" className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</a>
+              <Link href={`/${locale}`} className="text-blue-400">{t('home')}</Link>
+              <Link href={`/${locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
+              <Link href={`/${locale}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
+              <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">Blog</Link>
+              <Link href={`/${locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('cases')}</Link>
+              <Link href={`/${locale}/contact`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</Link>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                {t('getStarted')}
+              <button 
+                onClick={() => window.location.href = `/${locale}/contact`}
+                className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+              >
+                {t('contactUs')}
+              </button>
+              <button 
+                onClick={() => window.location.href = `/${locale}/chat`}
+                className="px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
+              >
+                {t('onlineChat')}
               </button>
             </div>
           </div>

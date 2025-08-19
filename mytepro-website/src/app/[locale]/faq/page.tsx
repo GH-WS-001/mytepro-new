@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useFAQs } from '@/hooks/useSanityData';
 import { FAQItem } from '@/components/SanityContent';
 import { PortableTextBlock } from '@portabletext/react';
+import Link from 'next/link';
 
 interface FAQItem {
   _id: string;
@@ -115,18 +116,18 @@ export default function FAQPage() {
             {t('contactDesc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => window.location.href = '/contact'}
+            <Link 
+              href="/contact"
               className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
             >
               {t('contactUs')}
-            </button>
-            <button 
-              onClick={() => window.location.href = '/chat'}
+            </Link>
+            <Link 
+              href="/chat"
               className="px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
             >
               {t('onlineChat')}
-            </button>
+            </Link>
           </div>
         </div>
       </section>

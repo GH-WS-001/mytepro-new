@@ -57,13 +57,22 @@
   },
   "solution": {
     "title": "我们的解决方案",
+    "subtitle": "现代房地产的综合技术解决方案",
     "digitalTwin": "数字孪生平台",
-    "digitalTwinDesc": "面向行业的实时3D可视化与仿真。",
+    "digitalTwinDesc": "面向工业和房地产应用的实时3D可视化和仿真，具有先进的IoT集成。",
     "digitalTwinDetail": "我们的数字孪生平台支持工业和地产场景的实时3D可视化、仿真与监控。可集成 IoT、BIM 等，实现资产的数字镜像。",
     "aiChat": "AI 聊天助手",
     "aiChatDesc": "基于 GPT-4 的智能问答与流程自动化。",
     "aiChatDetail": "AI 聊天助手基于 GPT-4，提供智能问答、业务流程自动化和客户互动提升。可无缝集成到您的网站或应用。",
-    "viewDetail": "查看详情"
+    "viewDetail": "查看详情",
+    "heroTitle": "变革性技术解决方案",
+    "heroSubtitle": "以尖端技术赋能房地产企业",
+    "readyToTransform": "准备好改变您的业务了吗？",
+    "readyToTransformDesc": "联系我们的专家，了解我们的解决方案如何推动您的业务发展",
+    "solutionsTitle": "我们的技术解决方案",
+    "solutionsSubtitle": "探索我们专为推动房地产创新和效率而设计的综合技术解决方案套件",
+    "keyFeatures": "主要特性：",
+    "viewDetails": "查看详情"
   },
   "Chatbot": {
     "title": "AI 助手",
@@ -119,5 +128,49 @@
     "contactUs": "联系我们",
     "contactTitle": "还有其他问题？",
     "onlineChat": "在线咨询"
+  },
+  
+  "Contact": {
+    "heroTitle": "联系我们",
+    "heroSubtitle": "有问题或想了解更多解决方案？我们的团队随时为您提供帮助。",
+    "getInTouch": "取得联系",
+    "contactInfo": "联系信息",
+    "name": "姓名",
+    "namePlaceholder": "请输入您的姓名",
+    "email": "邮箱地址",
+    "emailPlaceholder": "请输入您的邮箱地址",
+    "company": "公司",
+    "companyPlaceholder": "请输入您的公司名称",
+    "phone": "电话号码",
+    "phonePlaceholder": "请输入您的电话号码",
+    "message": "留言",
+    "messagePlaceholder": "我们如何帮助您？",
+    "sendMessage": "发送消息",
+    "address": "地址",
+    "formSuccess": "消息发送成功！",
+    "formSuccessMessage": "我们会尽快回复您。",
+    "supportTitle": "需要技术支持？",
+    "supportDescription": "我们的技术支持团队全天候24/7为您提供问题解答和帮助。",
+    "liveChat": "在线聊天",
+    "scheduleCall": "预约通话"
+  },
+  
+  "Chat": {
+    "heroTitle": "在线聊天支持",
+    "heroSubtitle": "与我们的AI助手聊天获取即时帮助和支持",
+    "aiAssistant": "AI助手",
+    "onlineNow": "在线",
+    "welcomeMessage": "您好！我是您的AI助手。今天有什么可以帮助您的吗？",
+    "inputPlaceholder": "在此输入您的消息...",
+    "poweredBy": "技术支持",
+    "needMoreHelp": "需要更多帮助？",
+    "contactDescription": "如果您需要更多个性化协助，我们的团队随时准备为您提供帮助。",
+    "contactUs": "联系我们",
+    "scheduleCall": "预约通话",
+    "response1": "感谢您的留言。我们的团队将查看您的咨询并尽快回复您。",
+    "response2": "我理解您的关注。让我为您联系一位人工客服，他们可以提供更详细的帮助。",
+    "response3": "这是一个很好的问题。根据您的需求，我建议您查看我们的数字孪生平台解决方案。",
+    "response4": "我已经记录了您的请求。我们的专家将在24小时内与您联系。",
+    "response5": "如需更详细的信息，我建议您与我们的团队预约演示。需要我帮您安排吗？"
   }
 }

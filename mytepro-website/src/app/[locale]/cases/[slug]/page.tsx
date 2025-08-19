@@ -193,13 +193,13 @@ export default function CaseDetailPage({ params }: { params: Promise<{ slug: str
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/contact"
+              href={`/${locale}/contact`}
               className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-colors text-lg font-semibold"
             >
               联系我们
             </Link>
             <Link 
-              href="/solution"
+              href={`/${locale}/solution`}
               className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-colors text-lg font-semibold"
             >
               查看解决方案
