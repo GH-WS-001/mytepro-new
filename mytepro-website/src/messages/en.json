@@ -29,7 +29,11 @@
     "company": "Company",
     "about": "About Us",
     "contactInfo": "contact@mytepro.ai | +1 (555) 123-4567",
-    "allRightsReserved": "All rights reserved."
+    "allRightsReserved": "All rights reserved.",
+    "home": "Home",
+    "cases": "Cases",
+    "onlineChat": "Online Chat",
+    "techBadge": "Next-Gen Real Estate Technology"
   },
   "VRDigitalTwinPage": {
     "home": "Home",
@@ -38,6 +42,7 @@
     "blog": "Blog",
     "cases": "Cases",
     "techBadge": "Next-Gen Real Estate Visualization",
+    "contact": "Contact",
     "heroTitle": "Immersive Property Experience",
     "heroSubtitle": "Step inside your future property with our cutting-edge VR digital twin technology",
     "scheduleDemo": "Schedule Demo",
@@ -67,13 +72,28 @@
   },
   "solution": {
     "title": "Our Solutions",
+    "subtitle": "Innovative technology solutions for modern real estate challenges",
+    "heroSubtitle": "Discover how our cutting-edge technologies can transform your real estate business",
+    "solutionsTitle": "Comprehensive Solutions",
+    "solutionsSubtitle": "Tailored technology solutions for every aspect of your real estate business",
+    "keyFeatures": "Key Features",
+    "readyToTransform": "Ready to Transform Your Business?",
+    "readyToTransformDesc": "Join thousands of real estate professionals who are already leveraging our technology to stay ahead of the curve.",
     "digitalTwin": "Digital Twin Platform",
     "digitalTwinDesc": "Real-time 3D visualization and simulation for industry.",
     "digitalTwinDetail": "Our Digital Twin Platform enables real-time 3D visualization, simulation, and monitoring for industrial and real estate scenarios. Integrate with IoT, BIM, and more to create a true digital mirror of your assets.",
     "aiChat": "AI Chat Assistant",
     "aiChatDesc": "Intelligent Q&A and workflow automation powered by GPT-4.",
     "aiChatDetail": "The AI Chat Assistant leverages GPT-4 to provide smart Q&A, automate business workflows, and enhance customer engagement. Easily integrate with your website or app for a seamless experience.",
-    "viewDetail": "View Details"
+    "viewDetail": "View Details",
+    "digitalTwinFeature1": "Real-time 3D Visualization",
+    "digitalTwinFeature2": "IoT Integration",
+    "digitalTwinFeature3": "BIM Compatibility",
+    "digitalTwinFeature4": "Predictive Analytics",
+    "aiChatFeature1": "GPT-4 Powered",
+    "aiChatFeature2": "Workflow Automation",
+    "aiChatFeature3": "24/7 Availability",
+    "aiChatFeature4": "Multi-language Support"
   },
   "Blog": {
     "title": "Blog",

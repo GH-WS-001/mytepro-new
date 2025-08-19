@@ -1,9 +1,10 @@
 "use client";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { usePosts } from '@/hooks/useSanityData';
 import { PostCard } from '@/components/SanityContent';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface BlogPost {
   _id: string;
@@ -33,8 +34,19 @@ interface BlogPost {
   }[];
 }
 
-export default function BlogPage() {
+export default function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('Blog');
+  const locale = useLocale();
+  const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
+
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setResolvedParams(resolved);
+    };
+    resolveParams();
+  }, [params]);
+
   const { data: posts, loading, error } = usePosts() as { 
     data: BlogPost[] | null; 
     loading: boolean; 
@@ -99,7 +111,7 @@ export default function BlogPage() {
                 {t('comingSoon')}
               </p>
               <Link 
-                href="/"
+                href={resolvedParams ? `/${resolvedParams.locale}` : '/'}
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 {t('backToHome')}

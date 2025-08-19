@@ -41,6 +41,7 @@ export default function VRDigitalTwin({ params }: { params: Promise<{ locale: st
               <span className="text-blue-400">{t('vrDigitalTwin')}</span>
               <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('blog')}</Link>
               <Link href={`/${locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('cases')}</Link>
+              <Link href={`/${locale}/contact`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</Link>
             </div>
             <div className="flex items-center space-x-4">
               <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">

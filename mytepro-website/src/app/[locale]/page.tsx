@@ -44,37 +44,28 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/10' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MyTePro</div>
+              <div className="flex items-center">
+                <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MyTePro</div>
+              </div>
+              <div className="hidden md:flex space-x-8">
+                <Link href={`/${resolvedParams?.locale || 'en'}`} className="text-blue-400">{t('home')}</Link>
+                <Link href={`/${resolvedParams?.locale || 'en'}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
+                <Link href={`/${resolvedParams?.locale || 'en'}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
+                <Link href={`/${resolvedParams?.locale || 'en'}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{tBlog('title')}</Link>
+                <Link href={`/${resolvedParams?.locale || 'en'}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{tCases('title')}</Link>
+                <Link href={`/${resolvedParams?.locale || 'en'}/contact`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</Link>
+              </div>
+              <div className="flex items-center space-x-4">
+                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                  {t('getStarted')}
+                </button>
+              </div>
             </div>
-            <div className="hidden md:flex space-x-8">
-              <Link href={`/${locale}`} className="text-blue-400">{t('home')}</Link>
-              <Link href={`/${locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
-              <Link href={`/${locale}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
-              <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">Blog</Link>
-              <Link href={`/${locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('cases')}</Link>
-              <Link href={`/${locale}/contact`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</Link>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button 
-                onClick={() => window.location.href = `/${locale}/contact`}
-                className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
-              >
-                {t('contactUs')}
-              </button>
-              <button 
-                onClick={() => window.location.href = `/${locale}/chat`}
-                className="px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
-              >
-                {t('onlineChat')}
-              </button>
-            </div>
-          </div>
         </div>
       </nav>
 
-      {/* Hero Section - Unreal Engine Style Banner */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Matches feature page style */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center bg-fixed opacity-30"></div>
@@ -104,7 +95,7 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
               className="inline-flex items-center px-4 py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full"
             >
               <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-              <span className="text-blue-300 text-sm font-medium">Next-Gen Real Estate Technology</span>
+              <span className="text-blue-300 text-sm font-medium">{t('techBadge')}</span>
             </motion.div>
             
             {/* Main title with gradient */}

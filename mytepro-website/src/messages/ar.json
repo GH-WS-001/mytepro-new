@@ -29,7 +29,11 @@
     "company": "الشركة",
     "about": "من نحن",
     "contactInfo": "contact@mytepro.ai | +1 (555) 123-4567",
-    "allRightsReserved": "جميع الحقوق محفوظة."
+    "allRightsReserved": "جميع الحقوق محفوظة.",
+    "home": "الرئيسية",
+    "cases": "الحالات",
+    "onlineChat": "الدردشة المباشرة",
+    "techBadge": "تكنولوجيا العقارات الجيل التالي"
   },
   "VRDigitalTwinPage": {
     "home": "الرئيسية",
@@ -70,7 +74,15 @@
     "solutionsTitle": "حلولنا التكنولوجية",
     "solutionsSubtitle": "استكشف مجموعة حلولنا التكنولوجية الشاملة للعقارات المصممة لقيادة الابتكار والكفاءة",
     "keyFeatures": "الميزات الرئيسية:",
-    "viewDetails": "عرض التفاصيل"
+    "viewDetails": "عرض التفاصيل",
+    "digitalTwinFeature1": "تصور ثلاثي الأبعاد في الوقت الفعلي",
+    "digitalTwinFeature2": "تكامل إنترنت الأشياء",
+    "digitalTwinFeature3": "توافق BIM",
+    "digitalTwinFeature4": "التحليلات التنبؤية",
+    "aiChatFeature1": "مدعوم بـ GPT-4",
+    "aiChatFeature2": "أتمتة سير العمل",
+    "aiChatFeature3": "متاح على مدار الساعة طوال أيام الأسبوع",
+    "aiChatFeature4": "دعم متعدد اللغات"
   },
   "Chatbot": {
     "title": "مساعد الذكاء الاصطناعي",

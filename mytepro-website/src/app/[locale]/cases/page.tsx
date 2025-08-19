@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useCases } from '@/hooks/useSanityData';
 import { CaseCard } from '@/components/SanityContent';
 import Link from 'next/link';
@@ -30,6 +30,7 @@ interface CaseItem {
 
 export default function CasesPage() {
   const t = useTranslations('Cases');
+  const locale = useLocale();
   const { data: cases, loading, error } = useCases() as { 
     data: CaseItem[] | null; 
     loading: boolean; 
@@ -72,11 +73,19 @@ export default function CasesPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">{t('title')}</h1>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            {t('subtitle')}
-          </p>
+        <div className="container mx-auto px-4">
+          <Link href={`/${locale}`} className="inline-flex items-center text-green-200 hover:text-white mb-6">
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            返回首页
+          </Link>
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">{t('title')}</h1>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">
+              {t('subtitle')}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -92,7 +101,7 @@ export default function CasesPage() {
               {featuredCases.map((case_item: CaseItem) => (
                 <Link 
                   key={case_item._id} 
-                  href={`/cases/${case_item.slug.current}`}
+                  href={`/${locale}/cases/${case_item.slug.current}`}
                   className="block group"
                 >
                   <CaseCard case_item={case_item} />
@@ -112,7 +121,7 @@ export default function CasesPage() {
               {regularCases.map((case_item: CaseItem) => (
                 <Link 
                   key={case_item._id} 
-                  href={`/cases/${case_item.slug.current}`}
+                  href={`/${locale}/cases/${case_item.slug.current}`}
                   className="block group"
                 >
                   <CaseCard case_item={case_item} />

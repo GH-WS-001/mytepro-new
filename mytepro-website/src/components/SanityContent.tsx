@@ -161,7 +161,7 @@ export function PostCard({ post }: { post: {
           ))}
         </div>
         <h3 className="text-xl font-semibold mb-2">
-          <Link href={`/blog/${post.slug?.current}`} className="hover:text-blue-600">
+          <Link href={`/${locale}/blog/${post.slug?.current}`} className="hover:text-blue-600">
             {post.title}
           </Link>
         </h3>

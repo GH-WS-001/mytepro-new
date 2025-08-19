@@ -29,7 +29,11 @@
     "company": "会社",
     "about": "私たちについて",
     "contactInfo": "contact@mytepro.ai | +1 (555) 123-4567",
-    "allRightsReserved": "全著作権所有。"
+    "allRightsReserved": "全著作権所有。",
+    "home": "ホーム",
+    "cases": "ケース",
+    "onlineChat": "オンラインチャット",
+    "techBadge": "次世代不動産テクノロジー"
   },
   "VRDigitalTwinPage": {
     "home": "ホーム",
@@ -70,7 +74,15 @@
     "solutionsTitle": "私たちのテクノロジーソリューション",
     "solutionsSubtitle": "イノベーションと効率を推進するために設計された包括的不動産テクノロジーソリューションスイートを探索",
     "keyFeatures": "主な機能：",
-    "viewDetails": "詳細を見る"
+    "viewDetails": "詳細を見る",
+    "digitalTwinFeature1": "リアルタイム3D可視化",
+    "digitalTwinFeature2": "IoT統合",
+    "digitalTwinFeature3": "BIM互換性",
+    "digitalTwinFeature4": "予測分析",
+    "aiChatFeature1": "GPT-4駆動",
+    "aiChatFeature2": "ワークフロー自動化",
+    "aiChatFeature3": "24/7全年候利用可能",
+    "aiChatFeature4": "多言語サポート"
   },
   "Chatbot": {
     "title": "AIアシスタント",

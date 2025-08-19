@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { usePost } from '@/hooks/useSanityData';
 import { PortableTextRenderer } from '@/components/SanityContent';
 import { notFound } from 'next/navigation';
@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
 import { PortableTextBlock } from '@portabletext/react';
+import { usePathname } from 'next/navigation';
 
 interface Author {
   name: string;
@@ -44,6 +45,8 @@ interface Post {
 }
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const locale = useLocale();
+  const pathname = usePathname();
   const [slug, setSlug] = useState<string | null>(null);
   
   useEffect(() => {
@@ -98,12 +101,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <Link href="/blog" className="inline-flex items-center text-blue-200 hover:text-white mb-6">
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            {t('backToBlog')}
-          </Link>
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <div className="flex flex-wrap items-center gap-4 text-blue-200">
             {post.author && (
@@ -170,7 +167,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           <div className="text-center py-8">
             <p className="text-gray-600 mb-6">{t('comingSoon')}</p>
             <Link 
-              href="/blog"
+              href={`/${locale}/blog`}
               className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center"
             >
               {t('viewAllPosts')}
