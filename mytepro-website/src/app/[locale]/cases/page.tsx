@@ -5,6 +5,7 @@ import { useCases } from '@/hooks/useSanityData';
 import { CaseCard } from '@/components/SanityContent';
 import Link from 'next/link';
 import { PortableTextBlock } from '@portabletext/react';
+import { useEffect, useState } from 'react';
 
 interface CaseItem {
   _id: string;
@@ -28,14 +29,25 @@ interface CaseItem {
   body?: PortableTextBlock[];
 }
 
-export default function CasesPage() {
+export default function CasesPage({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('Cases');
+  const tHome = useTranslations('HomePage');
   const locale = useLocale();
+  const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
   const { data: cases, loading, error } = useCases() as { 
     data: CaseItem[] | null; 
     loading: boolean; 
     error: string | null 
   };
+
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setResolvedParams(resolved);
+    };
+    
+    resolveParams();
+  }, [params]);
 
   if (loading) {
     return (
@@ -74,11 +86,14 @@ export default function CasesPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}`} className="inline-flex items-center text-green-200 hover:text-white mb-6">
+          <Link
+            href={`/${resolvedParams?.locale || locale || 'en'}`}
+            className="inline-flex items-center text-green-200 hover:text-white mb-6"
+          >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            返回首页
+            {tHome('home')}
           </Link>
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">{t('title')}</h1>
@@ -101,7 +116,7 @@ export default function CasesPage() {
               {featuredCases.map((case_item: CaseItem) => (
                 <Link 
                   key={case_item._id} 
-                  href={`/${locale}/cases/${case_item.slug.current}`}
+                  href={`/${resolvedParams?.locale || locale || 'en'}/cases/${case_item.slug.current}`}
                   className="block group"
                 >
                   <CaseCard case_item={case_item} />
@@ -121,7 +136,7 @@ export default function CasesPage() {
               {regularCases.map((case_item: CaseItem) => (
                 <Link 
                   key={case_item._id} 
-                  href={`/${locale}/cases/${case_item.slug.current}`}
+                  href={`/${resolvedParams?.locale || locale || 'en'}/cases/${case_item.slug.current}`}
                   className="block group"
                 >
                   <CaseCard case_item={case_item} />
@@ -130,9 +145,7 @@ export default function CasesPage() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
-                {t('noCases')}
-              </p>
+              <p className="text-gray-500">{t('noCases')}</p>
             </div>
           )}
         </div>

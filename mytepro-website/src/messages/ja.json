@@ -161,7 +161,13 @@
     "supportTitle": "技術サポートが必要ですか？",
     "supportDescription": "当社の技術サポートチームは24時間365日、問題や質問の解決をお手伝いいたします。",
     "liveChat": "ライブチャット",
-    "scheduleCall": "通話の予約"
+    "scheduleCall": "通話の予約",
+    "businessHours": "営業時間",
+    "mondayFriday": "月曜日 - 金曜日",
+    "saturday": "土曜日",
+    "sunday": "日曜日",
+    "closed": "休業",
+    "optional": "(任意)"
   },
   "Chat": {
     "heroTitle": "オンラインチャットサポート",

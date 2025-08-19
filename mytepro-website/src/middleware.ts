@@ -15,13 +15,7 @@ const intlMiddleware = createMiddleware({
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Handle root path and specific paths without locale
-  if (pathname === '/' || pathname === '/vr-digital-twin') {
-    return NextResponse.redirect(
-      new URL(`/en${pathname}`, request.url)
-    );
-  }
-  
+  // Delegate locale handling to next-intl middleware
   return intlMiddleware(request);
 }
 

@@ -1,12 +1,14 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function ContactPage() {
+export default function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('Contact');
+  const tHome = useTranslations('HomePage');
   const locale = useLocale();
+  const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,6 +17,15 @@ export default function ContactPage() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setResolvedParams(resolved);
+    };
+    
+    resolveParams();
+  }, [params]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -48,11 +59,14 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}`} className="inline-flex items-center text-blue-200 hover:text-white mb-6">
+          <Link
+            href={`/${resolvedParams?.locale || locale || 'en'}`}
+            className="inline-flex items-center text-blue-200 hover:text-white mb-6"
+          >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            返回首页
+            {tHome('home')}
           </Link>
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('heroTitle')}</h1>
@@ -113,7 +127,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      {t('company')}
+                      {t('company')} {t('optional', { defaultValue: '(Optional)' })}
                     </label>
                     <input
                       type="text"
@@ -188,7 +202,8 @@ export default function ContactPage() {
                   <div className="flex items-start">
                     <div className="flex-shrink-0 bg-blue-100 dark:bg-blue-900/50 p-3 rounded-lg">
                       <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0l4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
                     <div className="ml-4">
@@ -222,12 +237,12 @@ export default function ContactPage() {
                   {t('supportDescription')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
-                    onClick={() => window.location.href = '/chat'}
-                    className="flex-1 bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors"
+                  <Link
+                    href={`/${resolvedParams?.locale || locale || 'en'}/chat`}
+                    className="flex-1 bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors text-center"
                   >
                     {t('liveChat')}
-                  </button>
+                  </Link>
                   <button className="flex-1 bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white/10 transition-colors">
                     {t('scheduleCall')}
                   </button>

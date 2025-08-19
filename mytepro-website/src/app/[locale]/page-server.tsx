@@ -12,6 +12,9 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
 
 function HomeClient({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('HomePage');
+  const tBlog = useTranslations('Blog');
+  const tCases = useTranslations('Cases');
+  const tFAQ = useTranslations('FAQ');
   const [isScrolled, setIsScrolled] = useState(false);
   const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
 
@@ -49,10 +52,18 @@ function HomeClient({ params }: { params: Promise<{ locale: string }> }) {
               {resolvedParams && (
                 <Link href={`/${resolvedParams.locale}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
               )}
-              <a href="vr-digital-twin" className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</a>
-              <a href="/blog" className="text-gray-300 hover:text-blue-400 transition-colors">博客</a>
-              <a href="/cases" className="text-gray-300 hover:text-blue-400 transition-colors">案例</a>
-              <a href="/faq" className="text-gray-300 hover:text-blue-400 transition-colors">FAQ</a>
+              {resolvedParams && (
+                <Link href={`/${resolvedParams.locale}/vr-digital-twin`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
+              )}
+              {resolvedParams && (
+                <Link href={`/${resolvedParams.locale}/blog`} className="text-gray-300 hover:text-blue-400 transition-colors">{tBlog('title')}</Link>
+              )}
+              {resolvedParams && (
+                <Link href={`/${resolvedParams.locale}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{tCases('title')}</Link>
+              )}
+              {resolvedParams && (
+                <Link href={`/${resolvedParams.locale}/faq`} className="text-gray-300 hover:text-blue-400 transition-colors">{tFAQ('title')}</Link>
+              )}
               <a href="#contact" className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</a>
             </div>
             <div className="flex items-center space-x-4">

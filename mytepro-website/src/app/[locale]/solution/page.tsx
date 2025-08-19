@@ -67,6 +67,7 @@ export default function SolutionPage({ params }: { params: Promise<{ locale: str
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MyTePro</div>
             </div>
             <div className="hidden md:flex space-x-8">
+              <Link href={`/${resolvedParams?.locale || 'en'}`} className="text-gray-300 hover:text-blue-400 transition-colors">{tHome('home')}</Link>
               <span className="text-blue-400">{tHome('solutions')}</span>
               {resolvedParams && (
                 <Link href={`/${resolvedParams.locale}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{tHome('vrDigitalTwin')}</Link>
@@ -311,7 +312,7 @@ export default function SolutionPage({ params }: { params: Promise<{ locale: str
                 className="px-10 py-4 border-2 border-blue-400 text-blue-400 font-bold rounded-full hover:bg-blue-400 hover:text-white transition-all duration-300 inline-flex items-center"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2 2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
                 {tHome('home')}
               </Link>

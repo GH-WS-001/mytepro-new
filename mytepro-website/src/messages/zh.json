@@ -165,7 +165,13 @@
     "supportTitle": "需要技术支持？",
     "supportDescription": "我们的技术支持团队全天候24/7为您提供问题解答和帮助。",
     "liveChat": "在线聊天",
-    "scheduleCall": "预约通话"
+    "scheduleCall": "预约通话",
+    "businessHours": "营业时间",
+    "mondayFriday": "周一至周五",
+    "saturday": "周六",
+    "sunday": "周日",
+    "closed": "休息",
+    "optional": "(可选)"
   },
   
   "Chat": {

@@ -17,6 +17,7 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const tCases = useTranslations('Cases');
   const [isScrolled, setIsScrolled] = useState(false);
   const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // 添加移动端菜单状态
 
   useEffect(() => {
     const resolveParams = async () => {
@@ -38,6 +39,11 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
     }
   }, []);
 
+  // 关闭菜单的函数
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
       {/* Navigation */}
@@ -47,7 +53,9 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
               <div className="flex items-center">
                 <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">MyTePro</div>
               </div>
-              <div className="hidden md:flex space-x-8">
+              
+              {/* 桌面端菜单 - 修复RTL布局问题 */}
+              <div className="hidden md:flex md:items-center md:space-x-8 rtl:space-x-reverse">
                 <Link href={`/${resolvedParams?.locale || 'en'}`} className="text-blue-400">{t('home')}</Link>
                 <Link href={`/${resolvedParams?.locale || 'en'}/solution`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('solutions')}</Link>
                 <Link href={`/${resolvedParams?.locale || 'en'}/vr`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('vrDigitalTwin')}</Link>
@@ -55,13 +63,51 @@ function HomePage({ params }: { params: Promise<{ locale: string }> }) {
                 <Link href={`/${resolvedParams?.locale || 'en'}/cases`} className="text-gray-300 hover:text-blue-400 transition-colors">{tCases('title')}</Link>
                 <Link href={`/${resolvedParams?.locale || 'en'}/contact`} className="text-gray-300 hover:text-blue-400 transition-colors">{t('contact')}</Link>
               </div>
+              
               <div className="flex items-center space-x-4">
                 <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
                   {t('getStarted')}
                 </button>
+                
+                {/* 移动端菜单按钮 - 新增 */}
+                <button 
+                  className="md:hidden text-white focus:outline-none"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  aria-label="Toggle menu"
+                >
+                  {isMenuOpen ? (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
         </div>
+        
+        {/* 移动端菜单 - 新增 */}
+        {isMenuOpen && (
+          <motion.div 
+            className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="px-4 py-4 space-y-4">
+              <Link href={`/${resolvedParams?.locale || 'en'}`} className="block text-blue-400 py-2" onClick={closeMenu}>{t('home')}</Link>
+              <Link href={`/${resolvedParams?.locale || 'en'}/solution`} className="block text-gray-300 hover:text-blue-400 transition-colors py-2" onClick={closeMenu}>{t('solutions')}</Link>
+              <Link href={`/${resolvedParams?.locale || 'en'}/vr`} className="block text-gray-300 hover:text-blue-400 transition-colors py-2" onClick={closeMenu}>{t('vrDigitalTwin')}</Link>
+              <Link href={`/${resolvedParams?.locale || 'en'}/blog`} className="block text-gray-300 hover:text-blue-400 transition-colors py-2" onClick={closeMenu}>{tBlog('title')}</Link>
+              <Link href={`/${resolvedParams?.locale || 'en'}/cases`} className="block text-gray-300 hover:text-blue-400 transition-colors py-2" onClick={closeMenu}>{tCases('title')}</Link>
+              <Link href={`/${resolvedParams?.locale || 'en'}/contact`} className="block text-gray-300 hover:text-blue-400 transition-colors py-2" onClick={closeMenu}>{t('contact')}</Link>
+            </div>
+          </motion.div>
+        )}
       </nav>
 
       {/* Hero Section - Matches feature page style */}

@@ -1,10 +1,14 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-export default function ChatPage() {
+export default function ChatPage({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations('Chat');
+  const locale = useLocale();
+  const router = useRouter();
+  const [resolvedParams, setResolvedParams] = useState<{ locale: string } | null>(null);
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -16,6 +20,15 @@ export default function ChatPage() {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolved = await params;
+      setResolvedParams(resolved);
+    };
+    
+    resolveParams();
+  }, [params]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -187,7 +200,7 @@ export default function ChatPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => router.push(`/${resolvedParams?.locale || locale || 'en'}/contact`)}
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors font-semibold"
               >
                 {t('contactUs')}
